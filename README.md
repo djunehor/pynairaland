@@ -14,9 +14,11 @@ A Python module to fetch and parse data from Nairaland.
 ## Installation
 You will need [Python 3.x](https://www.python.org/download/) and [pip](http://pip.readthedocs.org/en/latest/installing.html).
 
-Install using pip:
-
-    pip install nairaland
+Install using pip: `pip install nairaland`
+Install via repo:
+- Clone repor `git clone https://github.com/makinde2013/pynairaland`
+- Install requirements via `pip install -r requirements.txt`
+- Place pynairaland in your project root folder
 
 ## Usage
 
