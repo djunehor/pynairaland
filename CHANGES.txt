@@ -1,0 +1,28 @@
+v0.1.22, 13 June 2015 -- Fixed to work with Quora UI changes.
+v0.1.21, 28 February 2015 -- Fixed bug in legacy API.
+v0.1.20.5, 10 February 2015 -- Minor changes throughout.
+v0.1.20.1, 6 January 2015 -- Fix question description.
+v0.1.20, 6 January 2015 -- Additional question stats.
+v0.1.19, 4 January 2015 -- New API. Legacy support for v0.x API.
+v0.1.18.3, 24 December 2014 -- Fix answer statistics.
+v0.1.18.2, 24 December 2014 -- Fix answer statistics.
+v0.1.18.1, 24 December 2014 -- Fix answer statistics.
+v0.1.18, 23 December 2014 -- Added answer statistics.
+v0.1.17, 23 December 2014 -- Added question statistics.
+v0.1.16, 23 December 2014 -- Readme.
+v0.1.15, 23 December 2014 -- Refactoring, update dependencies.
+v0.1.14, 22 December 2014 -- Mutable objects bugfix.
+v0.1.13, 21 December 2014 -- Fix author regex.
+v0.1.12, 19 December 2014 -- Method organization.
+v0.1.11, 17 December 2014 -- Fix user activity to work with latest Quora changes.
+v0.1.10, 11 December 2014 -- Bugfix for full name in user statistics.
+v0.1.9, 27 October 2014 -- Bugfix for casting.
+v0.1.8, 27 October 2014 -- Updated to work with recent Quora UI changes.
+v0.1.7, 10 August 2014 -- Remove commas from values to fix casting.
+v0.1.6, 10 August 2014 -- Bugfix for key
+v0.1.5, 10 August 2014 -- Bugfix for followers/following with old UI and certain profiles.
+v0.1.4, 9 August 2014 -- Small bugfix to review requests.
+v0.1.3, 9 August 2014 -- Added review requests to activity.
+v0.1.2, 26 July 2014 -- Fixed to work with new Quora UI.
+v0.1.1, 26 July 2014 -- Readme.
+v0.1.0, 26 July 2014 -- Initial release.

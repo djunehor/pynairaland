@@ -1,0 +1,4 @@
+beautifulsoup4==4.4.0
+feedparser==5.2.1
+future==0.16.0
+requests==2.21.0
