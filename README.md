@@ -25,8 +25,9 @@ Install via repo:
 ### User statistics
 
 ```python
-from pynairaland.nairaland import Nairaland
-from pynairaland.nairaland.browser import Browser
+from nairaland import Nairaland
+import os
+from nairaland.browser import Browser
 
 browser = Browser(os.getenv('LINUX'))
 nairaland = Nairaland(browser)
@@ -35,7 +36,7 @@ nairaland = Nairaland(browser)
 front_page_topics = nairaland.front_page_topics()
 
 # Do stuff with the parsed activity data
-print front_page_topics
+print(front_page_topics)
 
 # Get categories
 categories = nairaland.categories(depth=2)
@@ -139,8 +140,9 @@ search_results = nairaland.search(search_term='buhari',board=20, page=1)
 
 ### Authenticated user routes
 ```python
-from pynairaland.nairaland import User
-from pynairaland.nairaland.browser import Browser
+import os
+from nairaland import User
+from nairaland.browser import Browser
 
 
 browser = Browser(os.getenv('LINUX'))

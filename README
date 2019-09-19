@@ -1,0 +1,73 @@
+# pynairaland
+#### Issues and pull requests welcome.
+
+
+A Python module to fetch and parse data from Nairaland.
+
+### Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Features](#features)
+* [Contribute](#contribute)
+* [Projects using `pynairaland`](#projects-using-pynairaland)
+
+## Installation
+You will need [Python 3.x](https://www.python.org/download/) and [pip](http://pip.readthedocs.org/en/latest/installing.html).
+
+Install using pip: `pip install nairaland`
+Install via repo:
+- Clone repor `git clone https://github.com/makinde2013/pynairaland`
+- Install requirements via `pip install -r requirements.txt`
+- Place pynairaland in your project root folder
+
+## Usage
+
+### User statistics
+
+```python
+from nairaland import Nairaland
+import os
+from nairaland.browser import Browser
+
+browser = Browser(os.getenv('LINUX'))
+nairaland = Nairaland(browser)
+
+# Get front page topics
+front_page_topics = nairaland.front_page_topics()
+
+# Do stuff with the parsed activity data
+print(front_page_topics)
+
+## Features
+### Currently implemented
+* Front page topics
+* Recent topics
+* Trending topics
+* Latest posts (comments)
+* Categories
+* Category topics
+* User Profile
+* User posts
+* User Topics
+* User followed boards
+* User followed topics
+* Posts by who user is following
+* Posts shared to user
+* Search
+* Create topic
+* Create post (comment) with quote
+* Like/Unlike post (comment)
+* Share/Unshare post (comment)
+
+### To do
+* Unit test
+* Refactor code to make it DRY
+
+## Contribute
+Check out the issues on GitHub and/or make a pull request to contribute!
+
+## Projects using `pynairaland`
+* [`nairaland-api`](https://github.com/makinde2013/nairaland-api) – A REST API for Nairaland.
+
+## Acknowledegment
+* [`pyquora`](https://github.com/csu/pyquora) – The project served as boiler plate for me to get this ready.
