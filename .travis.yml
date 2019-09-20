@@ -1,0 +1,28 @@
+language: python
+python:
+  - "3.7"
+  - "pypy"
+
+branches:
+  only:
+    - master
+
+# install dependencies
+install:
+  - "pip install -r requirements.txt"
+
+# run tests
+script:
+  - "nosetests --with-coverage --cover-package=nairaland"
+
+after_failure:
+  - bash <(curl -s https://codecov.io/bash)
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+# email notifications
+notifications:
+  email:
+    on_success: never
+    on_failure: always
