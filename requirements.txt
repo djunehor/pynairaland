@@ -1,7 +1,7 @@
-beautifulsoup4==4.4.0
+beautifulsoup
 lxml
-feedparser==5.2.1
-future==0.16.0
-requests==2.21.0
+feedparser
+future
+requests
 dateparser
 selenium
