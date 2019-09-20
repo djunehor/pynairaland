@@ -10,6 +10,7 @@ A Python module to fetch and parse data from Nairaland.
 * [Features](#features)
 * [Contribute](#contribute)
 * [Projects using `pynairaland`](#projects-using-pynairaland)
+* [Acknowledgement](#acknowledegment)
 
 ## Installation
 You will need [Python 3.x](https://www.python.org/download/) and [pip](http://pip.readthedocs.org/en/latest/installing.html).
