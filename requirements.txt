@@ -1,4 +1,4 @@
-beautifulsoup
+bs4
 lxml
 feedparser
 future
