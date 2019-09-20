@@ -8,7 +8,7 @@ with open('README.rst', 'r', encoding="utf-8") as file:
 
 setup(
     name='nairaland',
-    version='0.1.6',
+    version='0.1.8',
     description='Fetches and parses data from Nairaland.',
     long_description=long_description,
     author='Zacchaeus Bolaji',
@@ -20,6 +20,7 @@ setup(
 		"feedparser==5.2.1",
 		"requests==2.21.0",
 		"dateparser",
-		"selenium"
+		"selenium",
+        "lxml"
     ]
 )

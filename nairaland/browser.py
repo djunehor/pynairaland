@@ -1,47 +1,40 @@
 """Browser Module"""
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 import time
 import os
-
-# Options for windows
-OPTION = Options()
-
-OPTION.add_argument("--disable-infobars")
-OPTION.add_argument("start-maximized")
-OPTION.add_argument("--disable-extensions")
-OPTION.add_argument("--headless")
-# disable notifications popup alert
-OPTION.add_experimental_option(
-    "prefs", {"profile.default_content_setting_values.notifications": 1}
-)
-
-# specifies the path to the chromedriver.exe
-CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
-GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
-GOOGLE_CHROME_PATH = os.getcwd()+'\chromedriver.exe'
-
-
-# Options for LINUX
-options = Options()
-options.binary_location = GOOGLE_CHROME_BIN
-options.add_argument('--disable-gpu')
-options.add_argument('--no-sandbox')
-options.headless = True
 
 
 class Browser:
     """Browser class"""
 
     def __init__(self, linux):
+        # Options for windows
+        OPTION = Options()
+
+        OPTION.add_argument("--disable-infobars")
+        OPTION.add_argument("start-maximized")
+        OPTION.add_argument("--disable-extensions")
+        OPTION.add_argument("--headless")
+        # disable notifications popup alert
+        OPTION.add_experimental_option(
+            "prefs", {"profile.default_content_setting_values.notifications": 1}
+        )
+
+        # specifies the path to the chromedriver.exe
+        CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
+        GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
+        GOOGLE_CHROME_PATH = os.getcwd() + '\chromedriver.exe'
+
+        # Options for LINUX
+        options = Options()
+        options.binary_location = GOOGLE_CHROME_BIN
+        options.add_argument('--disable-gpu')
+        options.add_argument('--no-sandbox')
+        options.headless = True
+
         if linux == 'True':
-            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options,
-                                  service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
+            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
         else:
             self.driver = webdriver.Chrome(executable_path=GOOGLE_CHROME_PATH, chrome_options=OPTION)
 
