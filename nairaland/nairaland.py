@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import dateparser
 import requests
+import lxml
 
 
 class Nairaland:
@@ -9,7 +10,7 @@ class Nairaland:
         self.browser = browser
 
     def front_page_topics(self):
-        soup = BeautifulSoup(requests.get(self.BASE_URL).text)
+        soup = BeautifulSoup(requests.get(self.BASE_URL).text, "lxml")
         td = soup.find('td', attrs={'class': 'featured w'})
 
         links = td.find_all('a')
@@ -24,7 +25,7 @@ class Nairaland:
         return {'data': output}
 
     def categories(self, depth=0):
-        first_beautiful = BeautifulSoup(requests.get(self.BASE_URL).text)
+        first_beautiful = BeautifulSoup(requests.get(self.BASE_URL).text, 'lxml')
         table = first_beautiful.find('table', attrs={"class": "boards"})
 
         links = table.find_all('a')
@@ -46,7 +47,7 @@ class Nairaland:
                     browser.get_url(datum['url'])
                     second_table = browser.driver.find_element_by_xpath('/html/body/div/table[2]')
 
-                    second_beautiful = BeautifulSoup(second_table.get_attribute('innerHTML'))
+                    second_beautiful = BeautifulSoup(second_table.get_attribute('innerHTML'), 'lxml')
                     tds = second_beautiful.find_all('td')
 
                     sub_categories = []
@@ -71,7 +72,7 @@ class Nairaland:
 
                             browser.get_url(datum2['url'])
                             third_table = browser.driver.find_element_by_xpath('/html/body/div/table[2]')
-                            third_beautiful = BeautifulSoup(third_table.get_attribute('innerHTML'))
+                            third_beautiful = BeautifulSoup(third_table.get_attribute('innerHTML'), 'lxml')
                             tds2 = third_beautiful.find_all('td')
 
                             child_sub_categories = []
@@ -138,7 +139,7 @@ class Nairaland:
         trending['data'] = []
         for link in links:
             datum = {}
-            beautiful = BeautifulSoup(link.get_attribute('innerHTML'))
+            beautiful = BeautifulSoup(link.get_attribute('innerHTML'), 'lxml')
             bs = beautiful.find_all('b')
             category = bs[0]
             a = category.find('a')
@@ -213,7 +214,7 @@ class Nairaland:
         trending['data'] = []
         for link in links:
             datum = {}
-            beautiful = BeautifulSoup(link.get_attribute('innerHTML'))
+            beautiful = BeautifulSoup(link.get_attribute('innerHTML'), 'lxml')
             bs = beautiful.find_all('b')
             if not len(bs):
                 continue
@@ -289,7 +290,7 @@ class Nairaland:
         trending['meta']['total_entries'] = trending['meta']['per_page'] * trending['meta']['total_pages']
         trending['data'] = []
 
-        beautiful = BeautifulSoup(browser.driver.page_source)
+        beautiful = BeautifulSoup(browser.driver.page_source, 'lxml')
         headings = beautiful.find_all("td", class_="bold l pu")
         posts = beautiful.find_all("td", class_="l w pd")
         # print(f'[BeautifulSoup] Found {len(posts)} posts.')
@@ -397,7 +398,7 @@ class Nairaland:
             if 'Signature' in p.text:
                 user['signature'] = p.text.replace('Signature: ', '').strip()
             if 'Sections Most Active In: ' in p.text:
-                beautiful = BeautifulSoup(p.get_attribute('innerHTML'))
+                beautiful = BeautifulSoup(p.get_attribute('innerHTML'), 'lxml')
                 anchors = beautiful.find_all('a')
                 for a in anchors:
                     section = {}
@@ -442,7 +443,7 @@ class Nairaland:
         trending['meta']['total_entries'] = trending['meta']['per_page'] * trending['meta']['total_pages']
         trending['data'] = []
 
-        beautiful = BeautifulSoup(browser.driver.page_source)
+        beautiful = BeautifulSoup(browser.driver.page_source, 'lxml')
         headings = beautiful.find_all("td", class_="bold l pu")
         posts = beautiful.find_all("td", class_="l w pd")
         # print(f'[BeautifulSoup] Found {len(posts)} posts.')
@@ -529,7 +530,7 @@ class Nairaland:
         trending['data'] = []
         for link in links:
             datum = {}
-            beautiful = BeautifulSoup(link.get_attribute('innerHTML'))
+            beautiful = BeautifulSoup(link.get_attribute('innerHTML'), 'lxml')
             bs = beautiful.find_all('b')
             category = bs[0]
             a = category.find('a')
@@ -601,7 +602,7 @@ class Nairaland:
         trending['data'] = []
         for link in links:
             datum = {}
-            beautiful = BeautifulSoup(link.get_attribute('innerHTML'))
+            beautiful = BeautifulSoup(link.get_attribute('innerHTML'), 'lxml')
 
             b = beautiful.find('b')
             a = b.find('a')
@@ -678,7 +679,7 @@ class Nairaland:
         trending['topic']['category']['name'] = cat_a.text
         trending['topic']['category']['url'] = cat_a.get_attribute('href')
 
-        beautiful = BeautifulSoup(browser.driver.page_source)
+        beautiful = BeautifulSoup(browser.driver.page_source, 'lxml')
         headings = beautiful.find_all("td", class_="bold l pu")
         posts = beautiful.find_all("td", class_="l w pd")
         # print(f'[BeautifulSoup] Found {len(posts)} posts.')
@@ -751,7 +752,7 @@ class Nairaland:
         trending['meta']['total_entries'] = trending['meta']['per_page'] * trending['meta']['total_pages']
         trending['data'] = []
 
-        beautiful = BeautifulSoup(browser.driver.page_source)
+        beautiful = BeautifulSoup(browser.driver.page_source, 'lxml')
         headings = beautiful.find_all("td", class_="bold l pu")
         posts = beautiful.find_all("td", class_="l w pd")
         # print(f'[BeautifulSoup] Found {len(posts)} posts.')

@@ -1,8 +1,7 @@
 """
-Package to fetch information from Quora.
+Package to fetch information from Nairaland.
 Supports Python 3.7
-Source: https://github.com/csu/pyquora.
-Use help(quora.quora) or help(quora.user) for more help.
+Source: https://github.com/makinde2013/pynairaland
 """
 
 from .user import User

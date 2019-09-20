@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 import os
 
-# Chrome driver options
+# Options for windows
 OPTION = Options()
 
 OPTION.add_argument("--disable-infobars")
@@ -22,21 +22,17 @@ OPTION.add_experimental_option(
 )
 
 # specifies the path to the chromedriver.exe
-GOOGLE_CHROME_PATH = 'chromedriver'
-# CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
-CHROMEDRIVER_PATH = os.path.dirname(os.path.abspath(__file__))+'/chromedriver.exe'
+CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
+GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
+GOOGLE_CHROME_PATH = os.getcwd()+'\chromedriver.exe'
 
-# initialise
-options = webdriver.ChromeOptions()
-options.add_argument("--headless")
-options.add_argument('--no-sandbox')
-options.add_argument("--start-maximized")
-options.add_argument("--disable-infobars")
-options.add_argument("--disable-extensions")
+
+# Options for LINUX
+options = Options()
+options.binary_location = GOOGLE_CHROME_BIN
 options.add_argument('--disable-gpu')
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument('--ignore-certificate-errors')
-# options.binary_location = GOOGLE_CHROME_PATH
+options.add_argument('--no-sandbox')
+options.headless = True
 
 
 class Browser:
@@ -44,10 +40,10 @@ class Browser:
 
     def __init__(self, linux):
         if linux == 'True':
-            self.driver = webdriver.Chrome(executable_path=GOOGLE_CHROME_PATH, options=options,
+            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options,
                                   service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
         else:
-            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=OPTION)
+            self.driver = webdriver.Chrome(executable_path=GOOGLE_CHROME_PATH, chrome_options=OPTION)
 
     def get_url(self, url):
         """Navigates to URL"""

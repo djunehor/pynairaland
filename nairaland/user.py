@@ -42,7 +42,7 @@ class User:
         for link in links:
             datum = {}
             datum['category'] = {}
-            beautiful = BeautifulSoup(link.get_attribute('innerHTML'))
+            beautiful = BeautifulSoup(link.get_attribute('innerHTML'), 'lxml')
 
             bss = beautiful.find_all('b')
             c = bss[0]
@@ -127,7 +127,7 @@ class User:
         for link in links:
             datum = {}
             datum['category'] = {}
-            beautiful = BeautifulSoup(link.get_attribute('innerHTML'))
+            beautiful = BeautifulSoup(link.get_attribute('innerHTML'), 'lxml')
 
             bss = beautiful.find_all('b')
             c = bss[0]
@@ -197,7 +197,7 @@ class User:
         trending['meta']['total_entries'] = trending['meta']['per_page'] * trending['meta']['total_pages']
         trending['data'] = []
 
-        beautiful = BeautifulSoup(self.browser.driver.page_source)
+        beautiful = BeautifulSoup(self.browser.driver.page_source, 'lxml')
         headings = beautiful.find_all("td", class_="bold l pu")
         posts = beautiful.find_all("td", class_="l w pd")
         # print(f'[Scraper] Found {len(posts)} posts.')
@@ -281,7 +281,7 @@ class User:
         trending['meta']['total_entries'] = trending['meta']['per_page'] * trending['meta']['total_pages']
         trending['data'] = []
 
-        beautiful = BeautifulSoup(self.browser.driver.page_source)
+        beautiful = BeautifulSoup(self.browser.driver.page_source, 'lxml')
         headings = beautiful.find_all("td", class_="bold l pu")
         posts = beautiful.find_all("td", class_="l w pd")
         # print(f'[Scraper] Found {len(posts)} posts.')
@@ -368,7 +368,7 @@ class User:
         trending['meta']['total_entries'] = trending['meta']['per_page'] * trending['meta']['total_pages']
         trending['data'] = []
 
-        beautiful = BeautifulSoup(table.get_attribute('innerHTML'))
+        beautiful = BeautifulSoup(table.get_attribute('innerHTML'), 'lxml')
 
         headings = beautiful.find_all("td", attrs={'class': 'bold l pu'})
         posts = beautiful.find_all("td", attrs={'class': 'l w'})
@@ -454,7 +454,7 @@ class User:
         trending['meta']['total_entries'] = trending['meta']['per_page'] * trending['meta']['total_pages']
         trending['data'] = []
 
-        beautiful = BeautifulSoup(self.browser.driver.page_source)
+        beautiful = BeautifulSoup(self.browser.driver.page_source, 'lxml')
         headings = beautiful.find_all("td", class_="bold l pu")
         posts = beautiful.find_all("td", class_="l w")
         print(f'[Scraper] Found {len(posts)} posts.')

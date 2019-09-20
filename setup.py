@@ -3,12 +3,12 @@ try:
 except ImportError:
     from distutils.core import setup
 
-with open('README.rst', "r", encoding="utf8") as file:
+with open('README.rst', 'r', encoding="utf-8") as file:
     long_description = file.read()
 
 setup(
     name='nairaland',
-    version='0.1.0',
+    version='0.1.6',
     description='Fetches and parses data from Nairaland.',
     long_description=long_description,
     author='Zacchaeus Bolaji',
@@ -18,7 +18,6 @@ setup(
     install_requires=[
         "beautifulsoup4==4.4.0",
 		"feedparser==5.2.1",
-		"future==0.16.0",
 		"requests==2.21.0",
 		"dateparser",
 		"selenium"
