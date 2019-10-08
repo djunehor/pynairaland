@@ -3,8 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 import os
-import chromedriver_binary
-
 
 class Browser:
     """Browser class"""
@@ -24,18 +22,18 @@ class Browser:
 
         # specifies the path to the chromedriver.exe
         CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/bin/chromedriver')
-        # GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
+        GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', os.getcwd()+'\driver\\chromedriver.exe')
         GOOGLE_CHROME_PATH = os.getcwd()+'\driver\\chromedriver.exe'
 
         # Options for LINUX
         options = Options()
-        # options.binary_location = GOOGLE_CHROME_BIN
+        options.binary_location = GOOGLE_CHROME_BIN
+        options.add_argument("--headless")
         options.add_argument('--disable-gpu')
         options.add_argument('--no-sandbox')
-        options.headless = True
 
         if linux == 'True':
-            self.driver = webdriver.Chrome(options=options)
+            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
         else:
             self.driver = webdriver.Chrome(executable_path=GOOGLE_CHROME_PATH, options=OPTION)
 
