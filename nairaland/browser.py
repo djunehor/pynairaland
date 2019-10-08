@@ -12,7 +12,7 @@ class Browser:
         # Options for windows
         # specifies the path to the chromedriver.exe
         CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
-        GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/local/bin/google-chrome-stable')
+        GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/local/bin/google-chrome')
         GOOGLE_CHROME_PATH = os.getcwd() + '\chromedriver.exe'
 
         if linux == 'True':
