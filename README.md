@@ -1,5 +1,5 @@
 # pynairaland
-[![Build Status](https://travis-ci.org/csu/pynairaland.svg?branch=master)](https://travis-ci.org/makinde2013/pynairaland) [![HitCount](http://hits.dwyl.io/makinde2013/pynairaland.svg)](http://hits.dwyl.io/makinde2013/pynairaland)
+[![HitCount](http://hits.dwyl.io/makinde2013/pynairaland.svg)](http://hits.dwyl.io/makinde2013/pynairaland)
 
 #### Issues and pull requests welcome.
 

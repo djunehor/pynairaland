@@ -19,12 +19,14 @@ class Browser:
             # Options for LINUX
             options = Options()
             options.binary_location = GOOGLE_CHROME_BIN
-            options.add_argument('--disable-gpu')
             options.add_argument('--no-sandbox')
+            options.add_argument('--window-size=1420,1080')
+            options.add_argument('--headless')
+            options.add_argument('--disable-gpu')
             options.add_argument("--disable-logging")
             options.add_argument('log-level=3')
             options.headless = True
-            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
+            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
         else:
             OPTION = Options()
 
@@ -38,7 +40,7 @@ class Browser:
             OPTION.add_experimental_option(
                 "prefs", {"profile.default_content_setting_values.notifications": 1}
             )
-            self.driver = webdriver.Chrome(executable_path=GOOGLE_CHROME_PATH, chrome_options=OPTION)
+            self.driver = webdriver.Chrome(executable_path=GOOGLE_CHROME_PATH, options=OPTION)
 
     def get_url(self, url):
         """Navigates to URL"""
