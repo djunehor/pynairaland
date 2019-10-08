@@ -5,4 +5,4 @@ future
 requests
 dateparser
 selenium
-python-dotenv
+dotenv
