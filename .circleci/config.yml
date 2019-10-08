@@ -25,7 +25,8 @@ jobs: # A basic unit of work in a run
           name: Install Chromedriver latest version
           command: |
             sudo apt-get install zip unzip
-            wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
+            sudo apt install -y chromium-browser
+            wget https://chromedriver.storage.googleapis.com/78.0.3904.11/chromedriver_linux64.zip
             unzip chromedriver_linux64.zip
             sudo cp chromedriver /usr/local/bin/chromedriver
             sudo chown root /usr/loca/bin/chromedriver
