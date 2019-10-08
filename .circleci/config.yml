@@ -24,13 +24,16 @@ jobs: # A basic unit of work in a run
       - run:
           name: Install Chromedriver latest version
           command: |
-            sudo apt-get install unzip
-            wget -N https://chromedriver.storage.googleapis.com/78.0.3904.11/chromedriver_linux64.zip -P ~/Downloads
-            unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
-            sudo mv -f ~/Downloads/chromedriver /usr/local/share/
-            sudo chmod +x /usr/local/share/chromedriver
-            sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-            sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+            sudo apt-get update
+            sudo apt-get -y install google-chrome-stable
+            wget https://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip
+            sudo apt-get -y install unzip
+            unzip chromedriver_linux64.zip
+            rm chromedriver_linux64.zip
+            chmod +x chromedriver
+            sudo mv -f chromedriver /usr/local/bin
 
       - run:
           name: Install dependencies
