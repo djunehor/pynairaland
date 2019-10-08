@@ -18,13 +18,13 @@ jobs:
       - run:
           name: Install Chromedriver latest version
           command: |
-            /usr/bin/sudo apt-get install zip unzip
+            sudo apt-get install zip unzip
             wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
             unzip chromedriver_linux64_2.3.zip
-            /usr/bin/sudo cp chromedriver /usr/bin/chromedriver
-            /usr/bin/sudo chown root /usr/bin/chromedriver
-            /usr/bin/sudo chmod +x /usr/bin/chromedriver
-            /usr/bin/sudo chmod 755 /usr/bin/chromedriver
+            sudo cp chromedriver /usr/bin/chromedriver
+            sudo chown root /usr/bin/chromedriver
+            sudo chmod +x /usr/bin/chromedriver
+            sudo chmod 755 /usr/bin/chromedriver
       - save_cache:
           key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
           paths:
