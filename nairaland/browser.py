@@ -34,9 +34,9 @@ class Browser:
         options.headless = True
 
         if linux == 'True':
-            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
+            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
         else:
-            self.driver = webdriver.Chrome(executable_path=GOOGLE_CHROME_PATH, chrome_options=OPTION)
+            self.driver = webdriver.Chrome(executable_path=GOOGLE_CHROME_PATH, options=OPTION)
 
     def get_url(self, url):
         """Navigates to URL"""

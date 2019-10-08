@@ -8,12 +8,12 @@ with open('README.rst', 'r', encoding="utf-8") as file:
 
 setup(
     name='nairaland',
-    version='0.1.8',
+    version='0.1.9',
     description='Fetches and parses data from Nairaland.',
     long_description=long_description,
     author='Zacchaeus Bolaji',
     author_email='djunehor@gmail.com',
-    url='https://github.com/makinde2013/pynairaland',
+    url='https://github.com/djunehor/pynairaland',
     packages=['nairaland'],
     install_requires=[
         "beautifulsoup4==4.4.0",

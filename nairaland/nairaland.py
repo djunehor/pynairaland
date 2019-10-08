@@ -573,7 +573,7 @@ class Nairaland:
         return trending
 
     def category_topics(self, category, page=0):
-        url = self.BASE_URL+'/'+category
+        url = self.BASE_URL+'/'+str(category)
         if page > 0:
             url = url+'/'+str(page)
 
@@ -634,14 +634,15 @@ class Nairaland:
             last_element = first_split[len(first_split)-1]
             new_text = whole_text.replace(last_element, '')
             second_split = new_text.split(' views. ')
-            datum['last_post_time'] = str(dateparser.parse(second_split[1]))
+            if len(second_split) > 1:
+                datum['last_post_time'] = str(dateparser.parse(second_split[1]))
 
             trending['data'].append(datum)
 
         return trending
 
     def topic_posts(self, slug_id, page=0):
-        url = self.BASE_URL+'/'+slug_id
+        url = self.BASE_URL+'/'+str(slug_id)
         if page > 0:
             url = url+'/'+str(page)
 
