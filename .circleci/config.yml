@@ -34,9 +34,10 @@ jobs: # A basic unit of work in a run
             rm chromedriver_linux64.zip
             chmod +x chromedriver
             sudo mv -f chromedriver /usr/local/bin
-            sudo apt install chromium-browser
-            sudo dpkg -i google-chrome-stable_current_amd64.deb
-            sudo apt install google-chrome-stable_current_amd64.deb
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+            sudo apt-get update
+            sudo apt-get install google-chrome-stable
             sudo apt-get update && sudo apt-get install -y \
               locales \
               gconf-service \
