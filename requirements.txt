@@ -6,4 +6,4 @@ requests
 dateparser
 selenium
 python-dotenv
-chromedriver-py
+chromedriver-autoinstaller

@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 import os
-from chromedriver_py import binary_path # this will get you the path variable
+import chromedriver_autoinstaller
 
 
 class Browser:
@@ -16,6 +16,10 @@ class Browser:
         GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
         GOOGLE_CHROME_PATH = os.getcwd() + '\chromedriver.exe'
 
+        chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+        # and if it doesn't exist, download it automatically,
+        # then add chromedriver to path
+
         if linux == 'True':
             # Options for LINUX
             options = Options()
@@ -25,7 +29,7 @@ class Browser:
             options.add_argument("--disable-logging")
             options.add_argument('log-level=3')
             options.headless = True
-            self.driver = webdriver.Chrome(executable_path=binary_path, chrome_options=options)
+            self.driver = webdriver.Chrome(chrome_options=options)
         else:
             OPTION = Options()
 
