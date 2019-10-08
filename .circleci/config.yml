@@ -39,7 +39,6 @@ jobs: # A basic unit of work in a run
             pip install -r requirements.txt
       - run:
           command: |
-            python3 -m venv venv
             . venv/bin/activate
             python tests.py
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
