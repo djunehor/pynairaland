@@ -34,6 +34,7 @@ jobs: # A basic unit of work in a run
             rm chromedriver_linux64.zip
             chmod +x chromedriver
             sudo mv -f chromedriver /usr/local/bin
+            sudo apt install chromium-browser -y
             sudo apt-get update && sudo apt-get install -y \
               locales \
               gconf-service \
