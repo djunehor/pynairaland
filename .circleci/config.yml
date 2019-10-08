@@ -22,21 +22,21 @@ jobs: # A basic unit of work in a run
             - "/usr/local/bin"
             - "/usr/local/lib/python3.6/site-packages"
       - run:
+          name: Install Chromedriver latest version
+          command: |
+            sudo apt-get install zip unzip
+            wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip
+            sudo cp chromedriver /usr/bin/chromedriver
+            sudo chown root /usr/bin/chromedriver
+            sudo chmod +x /usr/bin/chromedriver
+            sudo chmod 755 /usr/bin/chromedriver
+      - run:
           name: Install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-      - run:
-          name: Install Chromedriver latest version
-          command: |
-            sudo apt-get install zip unzip
-            wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
-            unzip chromedriver_linux64_2.3.zip
-            sudo cp chromedriver /usr/bin/chromedriver
-            sudo chown root /usr/bin/chromedriver
-            sudo chmod +x /usr/bin/chromedriver
-            sudo chmod 755 /usr/bin/chromedriver
       - run:
           command: |
             python tests.py
