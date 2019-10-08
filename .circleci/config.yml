@@ -37,6 +37,9 @@ jobs: # A basic unit of work in a run
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+            pip uninstall dotenv
+            pip uninstall python-dotenv
+            pip install python-dotenv
       - run:
           command: |
             python tests.py
