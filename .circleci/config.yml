@@ -16,18 +16,18 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
       - run:
-        name: Install Chromedriver latest version
-        command: |
-          sudo apt-get install unzip &&
-          a=$(uname -m) &&
-          rm -r /tmp/chromedriver/
-          mkdir /tmp/chromedriver/ &&
-          wget -O /tmp/chromedriver/LATEST_RELEASE http://chromedriver.storage.googleapis.com/LATEST_RELEASE &&
-          if [ $a == i686 ]; then b=32; elif [ $a == x86_64 ]; then b=64; fi &&
-          latest=$(cat /tmp/chromedriver/LATEST_RELEASE) &&
-          wget -O /tmp/chromedriver/chromedriver.zip 'http://chromedriver.storage.googleapis.com/'$latest'/chromedriver_linux'$b'.zip' &&
-          sudo unzip /tmp/chromedriver/chromedriver.zip chromedriver -d /usr/local/bin/ &&
-          echo 'success?'
+          name: Install Chromedriver latest version
+          command: |
+            sudo apt-get install unzip &&
+            a=$(uname -m) &&
+            rm -r /tmp/chromedriver/
+            mkdir /tmp/chromedriver/ &&
+            wget -O /tmp/chromedriver/LATEST_RELEASE http://chromedriver.storage.googleapis.com/LATEST_RELEASE &&
+            if [ $a == i686 ]; then b=32; elif [ $a == x86_64 ]; then b=64; fi &&
+            latest=$(cat /tmp/chromedriver/LATEST_RELEASE) &&
+            wget -O /tmp/chromedriver/chromedriver.zip 'http://chromedriver.storage.googleapis.com/'$latest'/chromedriver_linux'$b'.zip' &&
+            sudo unzip /tmp/chromedriver/chromedriver.zip chromedriver -d /usr/local/bin/ &&
+            echo 'success?'
       - save_cache:
           key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
           paths:
