@@ -2,7 +2,6 @@
 build/
 dist/
 nairaland.egg-info/
-chromedriver.exe
 .env
 .commands
 nairaland/__pycache__/

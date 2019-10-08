@@ -6,6 +6,7 @@ from nairaland import Nairaland
 from nairaland import User
 from nairaland.browser import Browser
 
+
 class TestCase(unittest.TestCase):
     def setUp(self):
         load_dotenv('.env')
@@ -79,6 +80,7 @@ class TestCase(unittest.TestCase):
 
     def test_user_shared_with(self):
         assert type(self.user.shared_with()) == dict
-   
+
+
 if __name__ == "__main__":
     unittest.main()
