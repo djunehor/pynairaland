@@ -30,6 +30,7 @@ jobs: # A basic unit of work in a run
 
             # Install Chrome.
             sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
+            sudo -i
             sudo echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
             sudo apt-get -y update
             sudo apt-get install chromium-browser
