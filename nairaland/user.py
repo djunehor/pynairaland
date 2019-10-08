@@ -457,7 +457,7 @@ class User:
         beautiful = BeautifulSoup(self.browser.driver.page_source, 'lxml')
         headings = beautiful.find_all("td", class_="bold l pu")
         posts = beautiful.find_all("td", class_="l w")
-        print(f'[Scraper] Found {len(posts)} posts.')
+        # print(f'[Scraper] Found {len(posts)} posts.')
 
         trending['data'] = []
         for l in range(len(posts)):
