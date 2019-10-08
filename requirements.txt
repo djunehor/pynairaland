@@ -6,3 +6,4 @@ requests
 dateparser
 selenium
 python-dotenv
+chromedriver-binary
