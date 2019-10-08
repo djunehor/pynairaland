@@ -28,13 +28,13 @@ jobs: # A basic unit of work in a run
             sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
             sudo apt-get update
             sudo apt-get -y install google-chrome-stable
-            wget https://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip
+            wget https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
             sudo apt-get -y install unzip
             unzip chromedriver_linux64.zip
             rm chromedriver_linux64.zip
             chmod +x chromedriver
             sudo mv -f chromedriver /usr/local/bin
-            sudo apt-get -y install chromium-browser
+            sudo apt-get install -y chromium-browser
 
       - run:
           name: Install dependencies
