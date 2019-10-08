@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 import os
-import chromedriver_binary
+from chromedriver_py import binary_path # this will get you the path variable
 
 
 class Browser:
@@ -19,13 +19,13 @@ class Browser:
         if linux == 'True':
             # Options for LINUX
             options = Options()
-            options.binary_location = GOOGLE_CHROME_BIN
+            #b options.binary_location = GOOGLE_CHROME_BIN
             options.add_argument('--disable-gpu')
             options.add_argument('--no-sandbox')
             options.add_argument("--disable-logging")
             options.add_argument('log-level=3')
             options.headless = True
-            self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
+            self.driver = webdriver.Chrome(executable_path=binary_path, chrome_options=options)
         else:
             OPTION = Options()
 
