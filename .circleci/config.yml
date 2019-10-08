@@ -24,12 +24,7 @@ jobs: # A basic unit of work in a run
       - run:
           name: Install Chromedriver latest version
           command: |
-            sudo apt-get remove google-chrome-stable
-            rm ~/selenium-server-standalone-*.jar
-            rm ~/chromedriver_linux64.zip
-            sudo rm /usr/local/bin/chromedriver
-            sudo rm /usr/local/bin/selenium-server-standalone.jar
-
+            sudo apt-get install unzip
             # Install dependencies.
             sudo apt-get update
             sudo apt-get install -y unzip openjdk-8-jre-headless xvfb libxi6 libgconf-2-4
@@ -38,7 +33,7 @@ jobs: # A basic unit of work in a run
             sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
             sudo echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
             sudo apt-get -y update
-            sudo apt-get -y install google-chrome-stable
+            sudo apt-get install chromium-browser
 
             # Install ChromeDriver.
             wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/
