@@ -25,16 +25,13 @@ jobs: # A basic unit of work in a run
           name: Install Chromedriver latest version
           command: |
             sudo apt-get install unzip
-            wget -N http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip -P ~/Downloads
+            wget -N https://chromedriver.storage.googleapis.com/78.0.3904.11/chromedriver_linux64.zip -P ~/Downloads
             unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
             sudo mv -f ~/Downloads/chromedriver /usr/local/share/
             sudo chmod +x /usr/local/share/chromedriver
             sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
             sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
-            sudo apt-get install -y libglib2.0-0=2.50.3-2 \
-                     libnss3=2:3.26.2-1.1+deb9u1 \
-                     libgconf-2-4=3.2.6-4+b1 \
-                     libfontconfig1=2.11.0-6.7+b1
+
       - run:
           name: Install dependencies
           command: |

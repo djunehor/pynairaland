@@ -23,12 +23,12 @@ class Browser:
 
         # specifies the path to the chromedriver.exe
         CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/bin/chromedriver')
-        GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
+        # GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
         GOOGLE_CHROME_PATH = os.getcwd()+'\driver\\chromedriver.exe'
 
         # Options for LINUX
         options = Options()
-        options.binary_location = GOOGLE_CHROME_BIN
+        # options.binary_location = GOOGLE_CHROME_BIN
         options.add_argument('--disable-gpu')
         options.add_argument('--no-sandbox')
         options.headless = True
