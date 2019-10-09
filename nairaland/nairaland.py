@@ -617,10 +617,14 @@ class Nairaland:
             creator = bs[0]
             ac = creator.find('a')
             datum['creator'] = {}
-            datum['creator']['name'] = ac.text
-            datum['creator']['url'] = self.BASE_URL+ac['href']
-            datum['posts'] = bs[1].text
-            datum['views'] = bs[2].text
+            if ac:
+                datum['creator']['name'] = ac.text
+                datum['creator']['url'] = self.BASE_URL+ac['href']
+
+            if len(bs) > 1:
+                datum['posts'] = bs[1].text
+            if len(bs) > 2:
+                datum['views'] = bs[2].text
             datum['last_post_time'] = str(dateparser.parse(bs[3].text))
             datum['last_post_creator'] = {}
             ass = span.find_all('a')
