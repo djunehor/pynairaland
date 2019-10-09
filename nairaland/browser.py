@@ -18,7 +18,7 @@ class Browser:
         if linux == 'True':
             # Options for LINUX
             options = Options()
-            options.binary_location = GOOGLE_CHROME_BIN
+            #options.binary_location = GOOGLE_CHROME_BIN
             options.add_argument('--no-sandbox')
             options.add_argument('--window-size=1420,1080')
             options.add_argument('--headless')
