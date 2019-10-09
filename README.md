@@ -1,5 +1,5 @@
 # pynairaland
-[![HitCount](http://hits.dwyl.io/makinde2013/pynairaland.svg)](http://hits.dwyl.io/makinde2013/pynairaland)
+[![HitCount](http://hits.dwyl.io/makinde2013/pynairaland.svg)](http://hits.dwyl.io/makinde2013/pynairaland) [![CircleCI](https://circleci.com/gh/djunehor/pynairaland.svg?style=svg)](https://circleci.com/gh/djunehor/pynairaland)
 
 #### Issues and pull requests welcome.
 
@@ -10,6 +10,7 @@ A Python module to fetch and parse data from Nairaland.
 * [Usage](#usage)
 * [Features](#features)
 * [Contribute](#contribute)
+* [Run Tests](#tests)
 * [Projects using `pynairaland`](#projects-using-pynairaland)
 * [Acknowledgement](#acknowledegment)
 
@@ -227,9 +228,8 @@ mentions = user.mentions(page=2)
 * Like/Unlike post (comment)
 * Share/Unshare post (comment)
 
-### To do
-* Unit test
-* Refactor code to make it DRY
+### Tests
+* Run `python tests.py`
 
 ## Contribute
 Check out the issues on GitHub and/or make a pull request to contribute!
