@@ -1,5 +1,9 @@
 # pynairaland
-[![HitCount](http://hits.dwyl.io/makinde2013/pynairaland.svg)](http://hits.dwyl.io/makinde2013/pynairaland) [![CircleCI](https://circleci.com/gh/djunehor/pynairaland.svg?style=svg)](https://circleci.com/gh/djunehor/pynairaland)
+[![HitCount](http://hits.dwyl.io/djunehor/pynairaland.svg)](http://hits.dwyl.io/djunehor/pynairaland)
+[![PyPI download month](https://img.shields.io/pypi/dm/pynairaland.svg)](https://pypi.python.org/pypi/nairaland/)
+[![CircleCI](https://circleci.com/gh/djunehor/pynairaland.svg?style=svg)](https://circleci.com/gh/djunehor/pynairaland)
+[![PyPI version fury.io](https://badge.fury.io/py/pynairaland.svg)](https://pypi.python.org/pypi/nairaland/)
+[![GitHub license](https://img.shields.io/github/license/djunehor/pynairaland.svg)](https://github.com/djunehor/pynairaland/blob/master/LICENSE)
 
 #### Issues and pull requests welcome.
 
