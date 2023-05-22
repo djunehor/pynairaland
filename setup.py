@@ -18,7 +18,7 @@ setup(
     install_requires=[
         "beautifulsoup4==4.4.0",
 		"feedparser==5.2.1",
-		"requests==2.21.0",
+		"requests==2.31.0",
 		"dateparser",
 		"selenium",
         "lxml"
